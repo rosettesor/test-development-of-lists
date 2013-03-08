@@ -121,10 +121,9 @@ def custom_append(input_list, value):
     """custom_append(input_list, value) imitates input_list.append(value)"""
     """List slicing (some_list[start:end])
     * List slicing assignment (some_list[start:end] = another_list)"""
-    counter = 0
-    for i in input_lists:
-        counter = counter + value
-    return counter
+    length_of_list = custom_len(input_list)
+
+    input_list[length_of_list:length_of_list] = [value]
 
 def custom_extend(input_list, values):
     """custom_extend(input_list, values) imitates input_list.extend(values)"""
