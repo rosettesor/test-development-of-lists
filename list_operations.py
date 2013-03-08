@@ -127,40 +127,68 @@ def custom_append(input_list, value):
 
 def custom_extend(input_list, values):
     """custom_extend(input_list, values) imitates input_list.extend(values)"""
-    new_list = input_list + values
+    
+    length_of_list = custom_len(input_list)
+
+    input_list[length_of_list:length_of_list] = values
 
 def custom_insert(input_list, index, value):
     """custom_insert(input_list, index, value) imitates
     input_list.insert(index, value)
     """
-    pass
+    input_list[index:index] = [value]
 
 def custom_remove(input_list, value):
     """custom_remove(input_list, value) imitates input_list.remove(value)"""
-    pass
+    for v in range(custom_len(input_list)):
+        if input_list[v] == value:
+            del input_list[v]
+            break
 
 def custom_pop(input_list):
     """custom_pop(input_list) imitates input_list.pop()"""
-    pass
+    end_of_list = input_list[-1]
+    del input_list[-1]
+    return end_of_list
 
 def custom_index(input_list, value):
     """custom_index(input_list, value) imitates input_list.index(value)"""
-    pass
+    """Return index in list of first item whose value is value"""
+    for i in range(custom_len(input_list)):
+        if input_list[i] == value:
+            return i 
+            break
 
 def custom_count(input_list, value):
     """custom_count(input_list, value) imitates input_list.count(value)"""
-    pass
+    """Return the number of times x appears in the list"""
+    counter = 0
+    for i in range(custom_len(input_list)):
+        if input_list[i] == value:
+            counter = counter + 1
+        else:
+            continue
+    return counter
 
 def custom_reverse(input_list):
     """custom_reverse(input_list) imitates input_list.reverse()"""
-    pass
+    """Reverse the elements of the list, in place"""
+    input_list [0:] = input_list[::-1]
 
 def custom_contains(input_list, value):
     """custom_contains(input_list, value) imitates (value in input_list)"""
-    pass
+    for i in range(custom_len(input_list)):
+        if input_list[i] == value:
+            return True
+        else:
+            continue
+        break
 
 def custom_equality(some_list, another_list):
     """custom_equality(some_list, another_list) imitates
     (some_list == another_list)
     """
-    pass
+    if some_list[0:] == another_list[0:]:
+        return True
+    else:
+        return False
