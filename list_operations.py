@@ -192,3 +192,5 @@ def custom_equality(some_list, another_list):
         return True
     else:
         return False
+
+print "have a nice day"
